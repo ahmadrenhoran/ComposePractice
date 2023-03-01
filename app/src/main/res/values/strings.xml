@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Compose Practice</string>
+    <string name="happy_birthday">Happy birthday ! %s</string>
+    <string name="from">- from %s!</string>
+    <string name="title_activity_compose_article">ComposeArticle</string>
+    <string name="title_activity_task_manager">TaskManager</string>
+    <string name="title_activity_compose_quadrant">ComposeQuadrant</string>
+    <string name="title_activity_card_name">CardName</string>
+    <string name="title_activity_dice_roller">DiceRoller</string>
+    <string name="roll">Roll</string>
+    <string name="title_activity_click_behavior">ClickBehavior</string>
+</resources>
