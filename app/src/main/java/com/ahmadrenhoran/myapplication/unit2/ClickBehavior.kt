@@ -4,17 +4,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -54,7 +54,7 @@ fun Greeting() {
             text = "Tap the lemon tree to select a lemon",
             image = R.drawable.lemon_tree,
             onClickImage = {
-                stepTwoTap = 0
+                stepTwoTap = (2..4).random()
                 currentTap++
 
             })
@@ -62,9 +62,10 @@ fun Greeting() {
             text = "Keep tapping the lemon to squeeze it",
             image = R.drawable.lemon_squeeze,
             onClickImage = {
-                val rand = (2..4).random()
-                stepTwoTap++
-                if (stepTwoTap == rand) currentTap++
+//                val rand = (2..4).random()
+//                stepTwoTap++
+                stepTwoTap--
+                if (stepTwoTap == 0) currentTap++
             })
         3 -> LemonAndText(
             text = "Tap the lemonade to drink it",
