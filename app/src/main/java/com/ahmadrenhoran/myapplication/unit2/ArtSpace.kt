@@ -1,6 +1,7 @@
 package com.ahmadrenhoran.myapplication.unit2
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -39,6 +40,8 @@ class ArtSpace : ComponentActivity() {
             }
         }
     }
+
+
 }
 
 @Composable
@@ -46,6 +49,16 @@ fun ArtSpaceScreen() {
     var currentIndex by remember {
         mutableStateOf(0)
     }
+    /*
+    Recomposition terjadi saat variable mutable state mengalami perubahan
+    Ketika mengalami perubahan akan dicek semua dari root hingga leaf
+    apa saja yang menggunakan variable tersebut, jika menggunakan
+    maka akan dilakukan recompose, ketika recompose, jika variable tidak
+    menggunakan remember maka nilainya akan hilang, dan jika menggunakan
+    keyword remember maka ketika recomposeition, variable tersebut akan
+    memempertahankan/mengingat nilainya
+     */
+    Log.d("onRoot", "Recomposition happen")
 
     val listUserArt = mutableListOf(
         UserArt("Ahmad", "title 1", image = R.drawable.dice_1, year = "2012"),
@@ -80,7 +93,7 @@ fun ArtSpaceScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(4.dp),
-            elevation = 10.dp
+            elevation = 10.dp,
         ) {
             Column(
                 modifier = Modifier.padding(15.dp)
@@ -98,7 +111,9 @@ fun ArtSpaceScreen() {
                         }
                         append(" (${listUserArt[currentIndex].year})")
                     }
-                )
+                ).also {
+                    Log.d("onCard", "Recomposition happen")
+                }
             }
         }
         Row(horizontalArrangement = Arrangement.SpaceBetween) {
@@ -107,6 +122,11 @@ fun ArtSpaceScreen() {
                 else currentIndex = 5
             }, modifier = Modifier.weight(1f)) {
                 Text(text = "Previous")
+//                    .also {
+//                        Log.d("onPreviousText", "Recomposition happen")
+//                    }
+            }.also {
+                Log.d("onPreviousButton", "Recomposition happen")
             }
             Spacer(modifier = Modifier.width(12.dp))
             Button(onClick = {
