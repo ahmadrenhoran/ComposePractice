@@ -56,6 +56,8 @@ fun ArtSpaceScreen() {
         UserArt("Amare", "title 6", image = R.drawable.dice_6, year = "2012")
     )
 
+
+
     Column(
         modifier = Modifier
             .fillMaxSize()
