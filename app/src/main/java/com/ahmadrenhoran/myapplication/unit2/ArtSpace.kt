@@ -60,6 +60,8 @@ fun ArtSpaceScreen() {
      */
     Log.d("onRoot", "Recomposition happen")
 
+
+
     val listUserArt = mutableListOf(
         UserArt("Ahmad", "title 1", image = R.drawable.dice_1, year = "2012"),
         UserArt("Maulana", "title 2", image = R.drawable.dice_2, year = "2012"),
@@ -68,6 +70,14 @@ fun ArtSpaceScreen() {
         UserArt("Eris", "title 5", image = R.drawable.dice_5, year = "2012"),
         UserArt("Amare", "title 6", image = R.drawable.dice_6, year = "2012")
     )
+
+    listUserArt.let {
+
+    }
+
+    listUserArt.apply {
+
+    }
 
 
 
