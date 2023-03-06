@@ -13,6 +13,21 @@
         android:theme="@style/Theme.ComposePractice"
         tools:targetApi="31">
         <activity
+            android:name=".ThirteenDaysActivity"
+            android:exported="false"
+            android:label="@string/title_activity_thirteen_days"
+            android:theme="@style/Theme.ComposePractice" />
+        <activity
+            android:name=".SuperHeroesActivity"
+            android:exported="false"
+            android:label="@string/title_activity_super_heroes"
+            android:theme="@style/Theme.ComposePractice" />
+        <activity
+            android:name=".WoofActivity"
+            android:exported="false"
+            android:label="@string/title_activity_woof"
+            android:theme="@style/Theme.ComposePractice" />
+        <activity
             android:name=".Course"
             android:exported="false"
             android:label="@string/title_activity_course"

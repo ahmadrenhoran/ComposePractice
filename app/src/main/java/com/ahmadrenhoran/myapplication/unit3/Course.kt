@@ -3,16 +3,14 @@ package com.ahmadrenhoran.myapplication.unit3
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,7 +21,7 @@ import com.ahmadrenhoran.myapplication.unit3.model.Topic
 import com.ahmadrenhoran.myapplication.unit3.ui.theme.ComposePracticeTheme
 
 class Course : ComponentActivity() {
-    @OptIn(ExperimentalFoundationApi::class)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -41,16 +39,14 @@ class Course : ComponentActivity() {
 }
 
 
-@ExperimentalFoundationApi
 @Composable
 fun TopicGrid(modifier: Modifier = Modifier) {
     LazyVerticalGrid(
-        cells = GridCells.Fixed(2), verticalArrangement = Arrangement.spacedBy(8.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        modifier = modifier.padding(8.dp).fillMaxSize()
-    )
-
-    {
+        columns = GridCells.Fixed(2),
+        modifier = modifier.padding(8.dp).fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
         items(DataSource.topics) {
             CourseItem(topic = it)
         }
@@ -58,7 +54,6 @@ fun TopicGrid(modifier: Modifier = Modifier) {
 }
 
 
-@OptIn(ExperimentalFoundationApi::class)
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview11() {
